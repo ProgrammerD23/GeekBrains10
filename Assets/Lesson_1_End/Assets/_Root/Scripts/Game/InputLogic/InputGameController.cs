@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.InputLogic
 {
-    internal class InputGameController : BaseController
+    internal class InputGameController : BaseControllerContext
     {
         private readonly ResourcePath _resourcePath = new ResourcePath("Prefabs/EndlessMove");
         private BaseInputView _view;

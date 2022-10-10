@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.TapeBackground
 {
-    internal class TapeBackgroundController : BaseController
+    internal class TapeBackgroundController : BaseControllerContext
     {
         private readonly ResourcePath _viewPath = new ResourcePath("Prefabs/Background");
 

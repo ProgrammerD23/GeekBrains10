@@ -2,6 +2,7 @@ using Ui;
 using Game;
 using Profile;
 using UnityEngine;
+using Features.Shed;
 
 internal class MainController : BaseController
 {
@@ -10,6 +11,7 @@ internal class MainController : BaseController
 
     private MainMenuController _mainMenuController;
     private GameController _gameController;
+    private ShedController shedController;
 
 
     public MainController(Transform placeForUi, ProfilePlayer profilePlayer)
@@ -25,6 +27,7 @@ internal class MainController : BaseController
     {
         _mainMenuController?.Dispose();
         _gameController?.Dispose();
+        shedController?.Dispose();
 
         _profilePlayer.CurrentState.UnSubscribeOnChange(OnChangeGameState);
     }
@@ -39,11 +42,16 @@ internal class MainController : BaseController
                 _gameController?.Dispose();
                 break;
             case GameState.Game:
-                _gameController = new GameController(_profilePlayer);
+                _gameController = new GameController(_placeForUi, _profilePlayer);
                 _mainMenuController?.Dispose();
                 break;
             case GameState.Settings:
                 _mainMenuController.LoadSetting();
+                _gameController?.Dispose();
+                break;
+            case GameState.Shed:
+                shedController = new ShedController(_placeForUi, _profilePlayer);
+                _mainMenuController?.Dispose();
                 _gameController?.Dispose();
                 break;
             default:
