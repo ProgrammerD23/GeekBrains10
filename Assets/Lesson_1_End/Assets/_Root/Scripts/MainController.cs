@@ -11,7 +11,8 @@ internal class MainController : BaseController
 
     private MainMenuController _mainMenuController;
     private GameController _gameController;
-    private ShedController shedController;
+
+    private ShedContext _shedContext;
 
 
     public MainController(Transform placeForUi, ProfilePlayer profilePlayer)
@@ -25,39 +26,37 @@ internal class MainController : BaseController
 
     protected override void OnDispose()
     {
-        _mainMenuController?.Dispose();
-        _gameController?.Dispose();
-        shedController?.Dispose();
-
+        DisposeChildObjects();
         _profilePlayer.CurrentState.UnSubscribeOnChange(OnChangeGameState);
     }
 
 
     private void OnChangeGameState(GameState state)
     {
+        DisposeChildObjects();
+
         switch (state)
         {
             case GameState.Start:
                 _mainMenuController = new MainMenuController(_placeForUi, _profilePlayer);
-                _gameController?.Dispose();
-                break;
-            case GameState.Game:
-                _gameController = new GameController(_placeForUi, _profilePlayer);
-                _mainMenuController?.Dispose();
                 break;
             case GameState.Settings:
                 _mainMenuController.LoadSetting();
-                _gameController?.Dispose();
                 break;
             case GameState.Shed:
-                shedController = new ShedController(_placeForUi, _profilePlayer);
-                _mainMenuController?.Dispose();
-                _gameController?.Dispose();
+                _shedContext = new ShedContext(_placeForUi, _profilePlayer);
                 break;
-            default:
-                _mainMenuController?.Dispose();
-                _gameController?.Dispose();
+            case GameState.Game:
+                _gameController = new GameController(_placeForUi, _profilePlayer);
                 break;
         }
+    }
+
+    private void DisposeChildObjects()
+    {
+        _mainMenuController?.Dispose();
+        _gameController?.Dispose();
+
+        _shedContext?.Dispose();
     }
 }

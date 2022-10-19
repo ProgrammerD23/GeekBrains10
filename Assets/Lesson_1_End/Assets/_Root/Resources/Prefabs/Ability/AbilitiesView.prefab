@@ -106,5 +106,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf2373d59a53fcd48972063a3c733b73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _abilityButtonPrefab: {fileID: 7662108470128619572}
+  _abilityButtonPrefab: {fileID: 6387388524896712016, guid: 0a427f0e89454914da22f1bf1ec4e406, type: 3}
   _placeForButtons: {fileID: 954511984807746034}

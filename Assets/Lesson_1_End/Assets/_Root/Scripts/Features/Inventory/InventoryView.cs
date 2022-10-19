@@ -23,7 +23,7 @@ namespace Features.Inventory
 
         private void OnDestroy() => Clear();
 
-
+       
         public void Display(IEnumerable<IItem> itemsCollection, Action<string> itemClicked)
         {
             Clear();
