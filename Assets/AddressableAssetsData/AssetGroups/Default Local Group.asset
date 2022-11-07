@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 0e0c5154d2806294ea17ded5f942f2b1
+  m_SerializeEntries:
+  - m_GUID: a3cdde1a5fe9b164ead4ca1a1794b018
+    m_Address: Prefabs/SpawnedButton
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fb3bf41024c4c5f4e9071f71c4c81043
+    m_Address: Assets/Lesson_1_End/Assets/_Root/Resources_moved/Prefabs/Square.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: d83f91cc5e3299f469734d95fdffac4c, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 4be0eaaebd10bd24e8fe8001fd41a546, type: 2}
+    - {fileID: 11400000, guid: 3b933ae1212b2d04ba84225db33c19d4, type: 2}
